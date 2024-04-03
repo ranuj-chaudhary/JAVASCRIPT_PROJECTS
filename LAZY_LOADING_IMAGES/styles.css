@@ -1,0 +1,17 @@
+.image img{
+  width: 300px;
+  height: 300px;
+  
+}
+.blur-filter {
+  filter: blur(2px);
+}
+.container {
+  width: 900px;
+  background-color: rgb(79, 54, 103);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 300px;
+  flex-direction: column;
+}
