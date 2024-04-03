@@ -20,7 +20,9 @@
       <h1>Ecommerce Website</h1>
       <div class="cart-icon">
         <i class="fa-solid fa-cart-shopping"></i>
-        <div class="cart-quantity"><span>1</span></div>
+        <div class="cart-quantity">
+          <span class="total-cart-quantity">0</span>
+        </div>
       </div>
     </header>
     <!-- product container -->
@@ -28,10 +30,9 @@
     <!-- cart sidebar -->
     <div class="cart-sidebar">
       <h2>Cart Items</h2>
-      <div class="cart-items"></div>
-      <p >
-        Total Amount: Rs. <span class="cart-total">0</span>
-      </p>
+      <p>Total Amount: Rs.<span class="cart-total-amount">0</span></p>
+      <button class="cart-clear-btn">Clear Cart</button>
+      <div class="cart-products"><p>Cart is empty</p></div>
     </div>
   </body>
 </html>
