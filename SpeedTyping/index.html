@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <div class="typing">
+      <p class="typing__timer"></p>
+      <div class="typing__text-container">
+        <p class="typing__text"></p>
+        <textarea
+          name="input-text"
+          id="textInput"
+          class="typing__text-input"
+          autocapitalize="textarea"
+          disabled="true"
+        ></textarea>
+        <div class="typing_btn">
+          <button class="btn btn--start">Start</button>
+          <button class="btn btn--reset">Pause</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
