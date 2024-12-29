@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+  font-size: 62.5%;
+  height: 100vh;
+}
+
+.container {
+  font-size: 2rem;
+  background-color: purple;
+  margin: 10px;
+  padding: 10px;
+}
+
+.draggable {
+  height: 3rem;
+  background-color: white;
+  text-align: center;
+  margin: 10px 0;
+  cursor: pointer;
+}
+.draggable:active {
+  cursor: grab;
+}
+
+.dragging {
+  background-color: green;
+  opacity: 70%;
+}
