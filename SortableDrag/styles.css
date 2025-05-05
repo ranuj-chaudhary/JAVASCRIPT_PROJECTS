@@ -28,11 +28,10 @@ body {
   margin: 10px 0;
   cursor: pointer;
 }
-.draggable:active {
-  cursor: grab;
-}
+
 
 .dragging {
   background-color: green;
   opacity: 70%;
+  cursor: grab;
 }
