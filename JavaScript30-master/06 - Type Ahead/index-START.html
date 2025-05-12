@@ -1,23 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Type Ahead 👀</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="https://fav.farm/🔥" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Type Ahead 👀</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+  <body>
+    <form class="search-form">
+      <input type="text" class="search" placeholder="City or State" />
+      <ul class="suggestions">
+        <li class="list"><span>Filter</span> for a city</li>
+        <li class="list">or a state</li>
+      </ul>
+    </form>
+    <script>
+      const endpoint = 'https://www.dummyjson.com/products';
+      const input = document.querySelector('.search');
+      const suggestions = document.querySelector('.suggestions');
 
-  <form class="search-form">
-    <input type="text" class="search" placeholder="City or State">
-    <ul class="suggestions">
-      <li>Filter for a city</li>
-      <li>or a state</li>
-    </ul>
-  </form>
-<script>
-const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+      const products = []
+      fetch(endpoint).then(res => res.json()).then(data => {
 
-</script>
-</body>
+        products.push(...data.products);
+       });
+
+      function productsWithTitles(searchTerm, products){
+
+        const titles = products.map(product => product.title).filter(title => {
+            const regex = new RegExp(searchTerm, 'gi');
+           return title.match(regex);
+        });
+
+        return titles;
+      }
+
+      function displayMatches(){
+         const value = this.value;
+         const productsTitles = productsWithTitles(value, products);
+
+         const html = productsTitles.map(title => {
+          const regex = new RegExp(value, 'gi');
+          const searchedTerm = title.replace(regex, `<span >${value}</span>`);
+             return `<li class="list" >${searchedTerm}</li>`
+         }
+        ).join('');
+          suggestions.innerHTML = html;
+
+         };
+
+
+      input.addEventListener('keyup', displayMatches)
+      input.addEventListener('change', displayMatches)
+    </script>
+  </body>
 </html>
