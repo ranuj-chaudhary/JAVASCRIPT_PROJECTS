@@ -7,6 +7,7 @@
 </head>
 <body>
   <ul class="videos">
+    <h1>Total Time: <span class="total-duration"></span></h1>
     <li data-time="5:43">
       Video 1
     </li>
@@ -169,7 +170,7 @@
     <li data-time="5:05">
       Video 54
     </li>
-    <li data-time="6:03">
+    <li data-time="6:55">
       Video 55
     </li>
     <li data-time="12:39">
@@ -178,11 +179,36 @@
     <li data-time="1:56">
       Video 57
     </li>
-    <li data-time="4:04">
+    <li data-time="4:59">
       Video 58
     </li>
   </ul>
 <script>
+  const timeSpan = document.querySelector('.total-duration')
+  const timeLists = document.querySelectorAll('ul li');
+  const totalTimeInSeconds = Array.from(timeLists).map(list => {
+   const time = list.dataset.time;
+   const [minutes, seconds] = time.split(':');
+   const totalSeconds = 60 * parseInt(minutes) + parseInt(seconds);
+    return totalSeconds;
+  }).reduce((total, curr) => {
+    return total + curr;
+  }, 0);
+
+  let seconds = totalTimeInSeconds;
+  // calculate hours
+  const hours = Math.floor(totalTimeInSeconds/3600);
+  // remaining minutes
+  seconds = totalTimeInSeconds % 3600
+  // calculate minutes
+  const minutes = Math.floor(seconds/60)
+  // calculate remaining seconds
+  seconds = minutes % 60;
+  // total seconds
+  const totalSeconds = seconds;
+
+  timeSpan.textContent = `${hours}hr:${minutes}min:${totalSeconds}sec`
+
 </script>
 </body>
 </html>

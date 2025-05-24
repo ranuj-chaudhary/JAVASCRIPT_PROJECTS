@@ -5,6 +5,7 @@
   <title>LocalStorage</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="https://fav.farm/🔥" />
+  <script src="script.js" defer></script>
 </head>
 <body>
   <!--
@@ -24,14 +25,44 @@
       <input type="text" name="item" placeholder="Item Name" required>
       <input type="submit" value="+ Add Item">
     </form>
+    <div class="actions">
+      <button class="btn checked-all">CheckAll</button>
+      <button class="btn un-checked-all">UncheckAll</button>
+      <button class="btn clear-all">ClearAll</button>
+    </div>
   </div>
-
+<!-- 
 <script>
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.plates');
+  const item = document.querySelector('input[name="item"]');
   const items = [];
+ 
+  function handleAddItem(e){
+    e.preventDefault();
+    const text = item.value;
+   const newItem = {
+    text,
+    done: false
+   }
+   items.push(newItem);
+   renderPlatesItems(items, itemsList)
+  }
 
-</script>
+  function renderPlatesItems(items, listElement){
+    // rendering all elements every render not good for perfomance
+   const html = items.map((item, i) => {
+     return `<li>
+        <input type="checkbox" id="item${i}" data-index="${i}"/>
+        <label for="item${i}">${item.text}</label>
+      </li>`
+    }).join('');
+    console.log(html)
+  }
+
+  addItems.addEventListener('submit', handleAddItem)
+
+</script> -->
 
 
 </body>
